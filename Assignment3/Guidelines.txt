@@ -1,0 +1,208 @@
+#######################################
+#####     MODULE 3 EXERCISES      #####
+#####     READING DATA FILES      #####
+#######################################
+
+## Reading and writing data files
+
+## Take the provided therbook.zip compressed file.
+## Create a sub-directory on your home computer
+## C: drive labeled "temp" i.e. C://temp.
+## Then put all of the data files in therbook.zip
+## into the C://temp directory on your home (or
+## laptop) computer
+
+## For these Part 1 exercises, you will need
+## to do them on your home computer, not on school
+## computers.
+
+## Module 3 Exercises: Reading and Writing Data
+
+## Change your working directory with R to C:/temp
+## that contains all of therbook.zip data file
+## Note that you can do this Session -> Set working directory
+## in RStudio or interactively by doing this
+setwd(choose.dir()) # look for interactive window to
+## drill down....it may be behind your RStudio window
+
+?choose.dir
+?file.choose
+
+## and then you can check the default directory with
+getwd()
+
+## 1)
+## Use the read.csv() function to read in
+## the file "dates.csv". In the same line,
+## assign it to a new object 'dates'
+
+## You might look at
+?read.csv # and
+?read.table
+
+# <YOUR CODE AND WRITTEN ANSWER GOES HERE>
+
+## Use an appropriate R function
+## to tell you how many rows and
+## columns are in the dates object
+
+# <YOUR CODE AND WRITTEN ANSWER GOES HERE>
+
+## Use an appropriate R function
+## to tell you the complete structure
+## of dates
+
+## What class of object is dates?
+
+# <YOUR CODE AND WRITTEN ANSWER GOES HERE>
+
+## 2)
+## Use the read.table() function to read in
+## the file "cancer.txt". In the same line,
+## assign it to a new object 'cancer'. Make sure
+## that you successfully read in the correct
+## headers to each column at the same time.
+
+# <YOUR CODE AND WRITTEN ANSWER GOES HERE>
+
+## Use an appropriate R function
+## to tell you how many rows and
+## columns are in the cancer object
+
+# <YOUR CODE AND WRITTEN ANSWER GOES HERE>
+
+## Use an appropriate R function
+## to tell you the complete structure
+## of cancer
+
+## What class of object is cancer?
+
+# <YOUR CODE AND WRITTEN ANSWER GOES HERE>
+
+## 3)
+## Use the read.csv() function (and no
+## other function) to read in the file
+## "competition.txt". In the same line,
+## assign it to a new object 'comp'. Don't 
+## forget about capturing the headers
+
+# <YOUR CODE AND WRITTEN ANSWER GOES HERE>
+
+## Use an appropriate R function
+## to tell you how many rows and
+## columns are in the comp object
+
+# <YOUR CODE AND WRITTEN ANSWER GOES HERE>
+
+## Use an appropriate R function
+## to tell you the complete structure
+## of comp
+
+# <YOUR CODE AND WRITTEN ANSWER GOES HERE>
+
+## What class of object is comp?
+
+## 4)
+## Use the read.table() function (and no
+## other function) to read in the file
+## "piedata.csv". In the same line,
+## assign it to a new object 'pie'. Don't 
+## forget about capturing the headers
+
+# <YOUR CODE AND WRITTEN ANSWER GOES HERE>
+
+## Use an appropriate R function
+## to tell you how many rows and
+## columns are in the dates object
+
+# <YOUR CODE AND WRITTEN ANSWER GOES HERE>
+
+## Use an appropriate R function
+## to tell you the complete structure
+## of dates
+
+# <YOUR CODE AND WRITTEN ANSWER GOES HERE>
+
+## What class of object is comp?
+
+# <YOUR WRITTEN ANSWER GOES HERE>
+
+## Use an appropriate R function
+## to write the object 'pie' back
+## into the C:/temp directory under
+## the new file name "mypiedata.csv".
+?write.csv
+
+# <YOUR CODE AND WRITTEN ANSWER GOES HERE>
+
+## Open the file 'mypiedata.csv' in
+## excel. Does it look different from
+## 'piedata.csv' when opened in excel?
+
+# <YOUR WRITTEN ANSWER GOES HERE>
+
+## Yes or no? If 'Yes' what is different?
+## Why do you think this happened ?
+
+# <YOUR WRITTEN ANSWER GOES HERE>
+
+## Part 2: Manipulating Numbers and Vectors
+
+# Create a numeric vector 'w' consisting
+# of 10 real numbers between 0 and 10. Each
+# vector element must have a different value:
+
+# <YOUR WRITTEN R CODE GOES HERE>
+
+# Sort the vector. Is each element value unique?
+
+# <YOUR CODE AND WRITTEN ANSWER GOES HERE>
+
+## Using the indexes (or subscripts) of w only,
+## create a new vector 'g' that contains the
+## first 3 elements of 'w' and the 5th, 6th and 7th
+## elements of 'w' in that order. 
+## Do not use those element values.
+
+# <YOUR WRITTEN R CODE GOES HERE>
+
+## Create a new vector 'a' that contains
+## the reciprocal of each 'g' vector element
+## value.
+
+# <YOUR WRITTEN R CODE GOES HERE>
+
+## Create a character vector 'nms' consisting of
+## the character strings "first" "second"
+## "third" "fourth" "fifth" "sixth"
+
+# <YOUR WRITTEN R CODE GOES HERE>
+
+## Write and execute a command in R
+## that will assign these string values
+## as the names of the elements in g.
+
+# <YOUR WRITTEN R CODE GOES HERE>
+
+# Use the 'trees' data frame for this last exercise:
+data(trees)
+trees
+
+# How many rows and columns in trees?
+
+# <YOUR R CODE AND WRITTEN ANSWER GOES HERE>
+
+# Use the order() function to sort THE
+# ENTIRE DATA FRAME by the values in the
+# 'Height' column. NOTE: You do NOT use
+# the sort() function anywhere in this
+# exercise
+
+# index from low to high on just Height
+
+# <YOUR WRITTEN R CODE GOES HERE>
+
+#################################
+
+
+
