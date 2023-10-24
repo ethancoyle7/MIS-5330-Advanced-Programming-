@@ -1,0 +1,376 @@
+> #######################################
+> ####   Student   : Ethan Coyle     ####
+> ####   Instructor: Dr. Hubona      ####
+> ####   Course    : MIS 5330 780    ####
+> ####               FL23 - Advanced ####
+> ####               Programming     ####
+> ####   Assignment: Data Sturctures ####
+> ####                   Exercises   ####
+> ####   Date      : 10/23/2023      ####
+> #######################################
+> 
+> 
+> 
+> #############################################
+> #    Exercise 1                            ##
+> # Create a vector named 'v' which contains ##
+> # 10 random integer values between -100    ##
+> # and +100.                                ##    
+> #############################################
+> 
+> v <- sample(-100:100, 10)
+> cat("Exercise 1 - The output of the sample vector 'v' is shown below:\n")
+Exercise 1 - The output of the sample vector 'v' is shown below:
+> print(v)
+ [1]  84  61   2 -37 -67 -68  78  50  39 -79
+> 
+> 
+> 
+> #############################################################
+> #    Exercise 2                                            ##
+> #                                                          ## 
+> # Create a two-dimensional 5×5 array named                 ##  
+> # 'a' comprised of sequence of even integers               ##
+> # greater than 25.                                         ##    
+> #                                                          ##
+> # Create a vector named 's' containing sequence            ##
+> # of 20 capital letters, starting with 'C'.                ##
+> #############################################################
+> 
+> a <- matrix(seq(26, 74, by = 2), nrow = 5, ncol = 5)
+> cat("Exercise 2 - 2D array 'a' with a sequence of even integers greater
++     than 25 is shown below:\n")
+Exercise 2 - 2D array 'a' with a sequence of even integers greater
+    than 25 is shown below:
+> print(a)
+     [,1] [,2] [,3] [,4] [,5]
+[1,]   26   36   46   56   66
+[2,]   28   38   48   58   68
+[3,]   30   40   50   60   70
+[4,]   32   42   52   62   72
+[5,]   34   44   54   64   74
+> s <- LETTERS[3:22]
+> cat("The vectors that contain 20 capital letters starting with c
++     is shown below:\n")
+The vectors that contain 20 capital letters starting with c
+    is shown below:
+> print(s)
+ [1] "C" "D" "E" "F" "G" "H" "I" "J" "K" "L" "M" "N" "O" "P" "Q" "R"
+[17] "S" "T" "U" "V"
+> 
+> 
+> 
+> #####################################################
+> #    Exercise 3                                    ##
+> # Create a list named 'l' and put all previously   ##
+> # created objects from the above exercises in it.  ##
+> # Name the resulting list components a, b and c    ##
+> # respectively. How many elements are there in     ##
+> # the list? Show the structure of the list.        ##
+> # Count all elements in the list recursively.      ##
+> #####################################################
+> 
+> l <- list(a = a, b = s, c = v) # creating list called l
+> list_length <- length(unlist(l))
+> cat("Exercise 3 - How many elements are there in the list 'l'? 
++     ", list_length, "\n")
+Exercise 3 - How many elements are there in the list 'l'? 
+     55 
+> cat("The structure of the list is shown below:\n")
+The structure of the list is shown below:
+> str(l)
+List of 3
+ $ a: num [1:5, 1:5] 26 28 30 32 34 36 38 40 42 44 ...
+ $ b: chr [1:20] "C" "D" "E" "F" ...
+ $ c: int [1:10] 84 61 2 -37 -67 -68 78 50 39 -79
+> 
+> # Count all elements in the list 'l' recursively
+> recursive_list_element_count <- function(x) {
++   count <- 0
++   for (item in x) {
++     if (is.list(item)) {
++       count <- count + recursive_list_element_count(item)
++     } else {
++       count <- count + length(item)
++     }
++   }
++   return(count)
++ }
+> list_element_count <- recursive_list_element_count(l)
+> cat("When counting all the elements in the list 'l' recursively we get a
++     count of : ", list_element_count, "\n")
+When counting all the elements in the list 'l' recursively we get a
+    count of :  55 
+> 
+> 
+> 
+> ###################################################################
+> #    Exercise 4                                                  ##
+> # Without running commands in R, answer the following questions: ##
+> #                                                                ##    
+> #  1. What is the result of l[[3]] (from exercise 3)?            ##
+> #  2. How would you access the 'random-th'                       ##  
+> #     letter in the list element 'c'?                            ##    
+> #  3. If you convert list 'l' to a vector,                       ##
+> #     what will be the type of the elements?                     ##
+> #  4. Can this list be converted to an array?                    ##  
+> #     What will be the data type of the elements                 ##
+> #     in the resulting array?                                    ##
+> # Then check the results using R.                                ##
+> ###################################################################
+> 
+> # 1. What is the result of l[[3]] (from exercise 3)?
+> result_exercise_4_1 <- l[[3]]
+> cat("Exercise 4 - Answer to question 1: The result of l[[3]] is a vector.\n")
+Exercise 4 - Answer to question 1: The result of l[[3]] is a vector.
+> print(result_exercise_4_1)
+ [1]  84  61   2 -37 -67 -68  78  50  39 -79
+> 
+> # 2. How would you access the 'random-th' letter in the list element 'c'?
+> random <- 5  # Replace with the desired index
+> random_letter <- l$c[random]
+> cat("Answer to question 2: To access the 'random-th' letter in the list 
++     element 'c', use l$c[random].\n")
+Answer to question 2: To access the 'random-th' letter in the list 
+    element 'c', use l$c[random].
+> print(l$c[random])
+[1] -67
+> 
+> # 3. If you convert list 'l' to a vector, what will be the type of the
+> # elements?
+> l_as_vector <- unlist(l)
+> vector_class <- class(l_as_vector)
+> cat("Answer to question 3: If you convert list 'l' to a vector, the elements
++     will be of the same type. The class of the vector is :
++     ", vector_class, "\n")
+Answer to question 3: If you convert list 'l' to a vector, the elements
+    will be of the same type. The class of the vector is :
+     character 
+> 
+> # 4. Can this list be converted to an array? What will be the data type
+> #of the elements in the resulting array?
+> l_as_array <- as.array(l)
+> array_class <- class(l_as_array)
+> cat("Answer to question 4: This list CAN be converted to an array 
++     and the data type of the elements in the resulting array will
++     depend on the data types of the elements in the list. The class
++     of the array is: ", array_class, "\n")
+Answer to question 4: This list CAN be converted to an array 
+    and the data type of the elements in the resulting array will
+    depend on the data types of the elements in the list. The class
+    of the array is:  array 
+> 
+> 
+> 
+> ################################################
+> #    Exercise 5                               ## 
+> #  1. Remove letters from the list 'l'.       ##
+> #  2. Convert the list 'l' to a vector and    ##
+> #     check its class.                        ## 
+> #  3. Compare it with the result from         ##
+> #     exercise 4, question #3.                ##
+> ################################################
+> 
+> # 1. Remove letters from the list 'l'.
+> l_after_removing_letters <- l[-2]
+> # Print the list 'l' before and after removing letters
+> cat("Exercise 5 - Before removing letters from the list 'l':\n")
+Exercise 5 - Before removing letters from the list 'l':
+> print(l)
+$a
+     [,1] [,2] [,3] [,4] [,5]
+[1,]   26   36   46   56   66
+[2,]   28   38   48   58   68
+[3,]   30   40   50   60   70
+[4,]   32   42   52   62   72
+[5,]   34   44   54   64   74
+
+$b
+ [1] "C" "D" "E" "F" "G" "H" "I" "J" "K" "L" "M" "N" "O" "P" "Q" "R"
+[17] "S" "T" "U" "V"
+
+$c
+ [1]  84  61   2 -37 -67 -68  78  50  39 -79
+
+> cat("Exercise 5 - After removing letters from the list 'l':\n")
+Exercise 5 - After removing letters from the list 'l':
+> print(l_after_removing_letters)
+$a
+     [,1] [,2] [,3] [,4] [,5]
+[1,]   26   36   46   56   66
+[2,]   28   38   48   58   68
+[3,]   30   40   50   60   70
+[4,]   32   42   52   62   72
+[5,]   34   44   54   64   74
+
+$c
+ [1]  84  61   2 -37 -67 -68  78  50  39 -79
+
+> 
+> # 2. Convert the list 'l' to a vector and check its classa.
+> l_as_vector <- unlist(l)
+> vector_class <- class(l_as_vector)
+> cat("Answer to question 2: The class of the vector after converting list 'l'
++     to a vector is: ", vector_class, "\n")
+Answer to question 2: The class of the vector after converting list 'l'
+    to a vector is:  character 
+> 
+> # 3. Compare it with the result from exercise 4, question #3.
+> cat("Answer to question 3: Comparison with the result from exercise 4,
++     question #3:\n")
+Answer to question 3: Comparison with the result from exercise 4,
+    question #3:
+> print(l_as_vector)
+   a1    a2    a3    a4    a5    a6    a7    a8    a9   a10   a11 
+ "26"  "28"  "30"  "32"  "34"  "36"  "38"  "40"  "42"  "44"  "46" 
+  a12   a13   a14   a15   a16   a17   a18   a19   a20   a21   a22 
+ "48"  "50"  "52"  "54"  "56"  "58"  "60"  "62"  "64"  "66"  "68" 
+  a23   a24   a25    b1    b2    b3    b4    b5    b6    b7    b8 
+ "70"  "72"  "74"   "C"   "D"   "E"   "F"   "G"   "H"   "I"   "J" 
+   b9   b10   b11   b12   b13   b14   b15   b16   b17   b18   b19 
+  "K"   "L"   "M"   "N"   "O"   "P"   "Q"   "R"   "S"   "T"   "U" 
+  b20    c1    c2    c3    c4    c5    c6    c7    c8    c9   c10 
+  "V"  "84"  "61"   "2" "-37" "-67" "-68"  "78"  "50"  "39" "-79" 
+> 
+> 
+> 
+> #####################################################
+> #    Exercise 6                                    ##
+> # Find the difference between elements in          ##
+> # l[["a"]] and l[["b"]]. Find the intersection     ##
+> # between them. Is there number 33 in their union? ##  
+> #####################################################
+> 
+> ab_difference <- setdiff(l$a, l$b)
+> ab_intersect <- intersect(l$a, l$b)
+> is_33_in_union <- 33 %in% union(l$a, l$b)
+> cat("Exercise 6 - Answer to question 1: Difference between elements in 
++     l[['a']] and l[['b']] is shown below:\n")
+Exercise 6 - Answer to question 1: Difference between elements in 
+    l[['a']] and l[['b']] is shown below:
+> print(ab_difference)
+ [1] 26 28 30 32 34 36 38 40 42 44 46 48 50 52 54 56 58 60 62 64 66 68
+[23] 70 72 74
+> cat("Answer to question 2: Intersection between elements in l[['a']] 
++     and l[['b']] is shown below:\n")
+Answer to question 2: Intersection between elements in l[['a']] 
+    and l[['b']] is shown below:
+> print(ab_intersect)
+character(0)
+> cat("Answer to question 3: Is the number 33 in the union of elements from 
++     l[['a']] and l[['b']]? ", is_33_in_union, "\n")
+Answer to question 3: Is the number 33 in the union of elements from 
+    l[['a']] and l[['b']]?  FALSE 
+> 
+> 
+> 
+> #####################################################
+> #    Exercise 7                                    ##
+> # Create 5×5 matrix named 'm' and fill it with     ##
+> # random numeric values rounded to two decimal     ##
+> # places, ranging from 1.00 to 100.00.             ##
+> #####################################################
+> 
+> m <- matrix(round(runif(25, min = 1, max = 100), 2), nrow = 5)
+> cat("Exercise 7 - the 5x5 Matrix 'm' with random numeric values rounded to two 
++     decimal places is shown below:\n")
+Exercise 7 - the 5x5 Matrix 'm' with random numeric values rounded to two 
+    decimal places is shown below:
+> print(m)
+      [,1]  [,2]  [,3]  [,4]  [,5]
+[1,] 56.30 39.05 37.05 31.09 28.89
+[2,] 76.24 59.71  4.47 59.21 23.52
+[3,] 97.26 28.22  7.84 40.48 23.32
+[4,] 67.44 23.02 72.81 64.20 40.05
+[5,] 65.35 22.99 89.27 24.03 26.11
+> 
+> 
+> ####################################################
+> #    Exercise 8                                   ##
+> # Answer the following question without running   ##
+> # any R commands, then check the result.          ##
+> # What will be the class of the resulting data    ## 
+> # structure if you convert matrix 'm' from        ##
+> # exercise 7 to:                                  ##
+> #  1. a vector                                    ##
+> #  2. a list                                      ##
+> #  3. a data frame                                ##
+> #  4. an array ?                                  ##
+> ####################################################
+> 
+> # 1. a vector
+> m_as_vector <- as.vector(m)
+> vector_class <- class(m_as_vector)
+> # 2. a list
+> m_as_list <- as.list(m)
+> list_class <- class(m_as_list)
+> # 3. a data frame
+> m_as_data_frame <- as.data.frame(m)
+> data_frame_class <- class(m_as_data_frame)
+> # 4. an array
+> m_as_array <- as.array(m)
+> array_class <- class(m_as_array)
+> cat("Exercise 8 - Answer to the question:\n")
+Exercise 8 - Answer to the question:
+> cat("1. If we convert matrix 'm' to a vector, the class of the resulting 
++     data structure is: ", vector_class, "\n")
+1. If we convert matrix 'm' to a vector, the class of the resulting 
+    data structure is:  numeric 
+> cat("2. If we convert matrix 'm' to a list, the class of the resulting data
++     structure is: ", list_class, "\n")
+2. If we convert matrix 'm' to a list, the class of the resulting data
+    structure is:  list 
+> cat("3. If we convert matrix 'm' to a data frame, the class of the resulting
++     data structure is: ", data_frame_class, "\n")
+3. If we convert matrix 'm' to a data frame, the class of the resulting
+    data structure is:  data.frame 
+> cat("4. If we convert matrix 'm' to an array, the class of the resulting 
++     data structure is: ", array_class, "\n")
+4. If we convert matrix 'm' to an array, the class of the resulting 
+    data structure is:  matrix array 
+> 
+> 
+> 
+> #######################################################
+> #    Exercise 9                                      ##
+> # Transpose array l$b and then convert it to matrix. ##
+> #######################################################
+> transposed_b <- t(l$b) # transpose
+> matrix_b <- as.matrix(transposed_b) # convert to matrix
+> cat("Exercise 9 - Matrix 'matrix_b' after transposing array l[['b']]:\n")
+Exercise 9 - Matrix 'matrix_b' after transposing array l[['b']]:
+> print(matrix_b)
+     [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12]
+[1,] "C"  "D"  "E"  "F"  "G"  "H"  "I"  "J"  "K"  "L"   "M"   "N"  
+     [,13] [,14] [,15] [,16] [,17] [,18] [,19] [,20]
+[1,] "O"   "P"   "Q"   "R"   "S"   "T"   "U"   "V"  
+> 
+> 
+> #####################################################
+> #    Exercise 10                                   ##
+> # Get the union of matrix 'm' and all elements in  ##
+> # list 'l' and sort it in ascending order.         ##
+> #####################################################
+> # Convert elements in matrix 'm' to character
+> matrix_m_to_character <- as.character(m)
+> # Convert elements in list 'l' to character
+> l_as_character <- sapply(l, as.character)
+> # Get the union of matrix 'm' and elements in list 'l' (as character)
+> union_sorted <- sort(union(as.character(m), unlist(l_as_character)))
+> # Print the result
+> cat("Union of matrix 'm' and elements in list 'l' (as character) 
++     sorted in ascending order is shown below: \n")
+Union of matrix 'm' and elements in list 'l' (as character) 
+    sorted in ascending order is shown below: 
+> print(union_sorted)
+ [1] "-37"   "-67"   "-68"   "-79"   "2"     "22.99" "23.02" "23.32"
+ [9] "23.52" "24.03" "26"    "26.11" "28"    "28.22" "28.89" "30"   
+[17] "31.09" "32"    "34"    "36"    "37.05" "38"    "39"    "39.05"
+[25] "4.47"  "40"    "40.05" "40.48" "42"    "44"    "46"    "48"   
+[33] "50"    "52"    "54"    "56"    "56.3"  "58"    "59.21" "59.71"
+[41] "60"    "61"    "62"    "64"    "64.2"  "65.35" "66"    "67.44"
+[49] "68"    "7.84"  "70"    "72"    "72.81" "74"    "76.24" "78"   
+[57] "84"    "89.27" "97.26" "C"     "D"     "E"     "F"     "G"    
+[65] "H"     "I"     "J"     "K"     "L"     "M"     "N"     "O"    
+[73] "P"     "Q"     "R"     "S"     "T"     "U"     "V"    
+> 
