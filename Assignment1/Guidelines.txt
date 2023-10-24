@@ -1,0 +1,123 @@
+#######################################
+####   Data Structures Exercises   ####
+#######################################
+
+# There are 5 important basic data structures
+# in R: vector, matrix, array, list and dataframe. 
+# They can be 1-dimensional (vector and list), 
+# 2-dimensional (matrix and data frame) or 
+# multidimensional (array). They also differ 
+# according to homogeneity of elements they 
+# can contain: while all elements contained in 
+# vector, matrix and array must be of the same type, 
+# list and data frame can contain multiple types.
+
+# In this set of exercises we shall practice casting 
+# between different types of these data structures, 
+# together with some basic operations on them. 
+
+####################
+#    Exercise 1    #
+####################
+
+# Create a vector named 'v' which contains 
+# 10 random integer values between -100 
+# and +100.
+
+v <- sample(-100:100, 10)
+cat("The output of the sample vector v is 'v':\n")
+print(v)
+
+####################
+#    Exercise 2    #
+####################
+
+# Create a two-dimensional 5×5 array named
+# 'a' comprised of sequence of even integers 
+# greater than 25.
+
+# Create a vector named 's' containing sequence 
+# of 20 capital letters, starting with 'C'.
+
+####################
+#    Exercise 3    #
+####################
+
+# Create a list named 'l' and put all previously 
+# created objects from the above exercises in it. 
+# Name the resulting list components a, b and c 
+# respectively. How many elements are there in 
+# the list? Show the structure of the list. 
+# Count all elements in the list recursively.
+
+####################
+#    Exercise 4    #
+####################
+
+# Without running commands in R, answer the following questions:
+  
+#  1. What is the result of l[[3]] (from exercise 3)?
+#  2. How would you access the 'random-th'
+#     letter in the list element 'c'?
+#  3. If you convert list 'l' to a vector, 
+#     what will be the type of the elements?
+#  4. Can this list be converted to an array? 
+#     What will be the data type of the elements
+#     in the resulting array?
+
+# Then check the results using R.
+
+####################
+#    Exercise 5    #
+####################
+
+#  1. Remove letters from the list 'l'. 
+#  2. Convert the list 'l' to a vector and 
+#     check its class. 
+#  3. Compare it with the result from 
+#     exercise 4, question #3.
+
+####################
+#    Exercise 6    #
+####################
+
+# Find the difference between elements in 
+# l[["a"]] and l[["b"]]. Find the intersection 
+# between them. Is there number 33 in their union?
+
+####################
+#    Exercise 7    #
+####################
+
+# Create 5×5 matrix named 'm' and fill it with 
+# random numeric values rounded to two decimal 
+# places, ranging from 1.00 to 100.00.
+
+####################
+#    Exercise 8    #
+####################
+
+# Answer the following question without running 
+# any R commands, then check the result.
+
+# What will be the class of the resulting data 
+# structure if you convert matrix 'm' from
+# exercise 7 to:
+  
+#  1. a vector
+#  2. a list
+#  3. a data frame
+#  4. an array ?
+
+####################
+#    Exercise 9    #
+####################
+
+# Transpose array l$b and then convert it to matrix.
+
+####################
+#    Exercise 10   #
+####################
+
+# Get the union of matrix 'm' and all elements in 
+# list 'l' and sort it in ascending order.
