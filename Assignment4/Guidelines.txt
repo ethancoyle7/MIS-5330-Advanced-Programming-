@@ -1,0 +1,61 @@
+####################################
+###  USER-DEFINED VECTOR MAKERS  ###
+###    EXERCISE #4 MIS 5330      ###
+####################################
+
+# In the R script solution file that you deposit
+# in the dropbox, put the name of the course,
+# your name and Exercise 4; for example:
+# MIS5330_Geoff_Hubona_Exercise_4.R. 
+
+# 1. Create a user-defined function 
+# "vector.maker.num" that generates 
+# a vector of numbers. Do not use the 
+# R-native function vector() inside 
+# any of these user-defined functions! 
+# vector.maker.num() should have no formal 
+# arguments. Each time it is called, and 
+# it should return a vector of exactly 
+# 5 different random numbers from within 
+# the range of 1 to 100.
+
+vector.maker.num <- function() {
+#  < your work goes here>
+}
+
+# Try it out (several times):
+vector.maker.num()
+
+# 2. Create a user-defined function 
+# "vector.maker.alph" that generates a
+# vector of characters. vector.maker.alph()
+# should have no formal arguments. When it
+# is called, it should return a vector of 
+# exactly 5 different random letters from 
+# the 26 lower case letters of the alphabet.
+# Here is a helpful tip: the native R object
+# 'letters' returns the 26 lower-case letters
+# of the alphabet as character elements.
+
+vector.maker.alph <- function() {
+#  < your work goes here>
+}
+
+# Try it out (several times):
+vector.maker.alph()
+
+# 3. Create a user-defined function 
+# "vector.maker.bool" that outputs a vector 
+# of logical values (TRUE's and FALSE's). 
+# vector.maker.bool() should have no formal
+# arguments. When it is called, it should 
+# return a vector of exactly 5 different 
+# random values (mixed) containing both 
+# TRUE's AND FALSE's.
+
+vector.maker.bool <- function() {
+  #  < your work goes here>
+}
+
+# Try it out (several times):
+vector.maker.bool()
