@@ -35,14 +35,14 @@ print(v)
 # of 20 capital letters, starting with 'C'.                ##
 #############################################################
 
-a <- matrix(seq(26, 74, by = 2), nrow = 5, ncol = 5)
-cat("Exercise 2 - 2D array 'a' with a sequence of even integers greater
-    than 25 is shown below:\n")
-print(a)
+a <- array(seq(from=26,length.out= 25, by = 2),c(5,5))
+#"Exercise 2 - 2D array 'a' with a sequence of even integers greater
+# than 25 is shown below
+a # show the value of a 
 s <- LETTERS[3:22]
-cat("The vectors that contain 20 capital letters starting with c
-    is shown below:\n")
-print(s)
+# The vectors that contain 20 capital letters starting with c
+# is shown below
+s
 
 
 
@@ -56,11 +56,11 @@ print(s)
 # Count all elements in the list recursively.      ##
 #####################################################
 
-l <- list(a = a, b = s, c = v) # creating list called l
-list_length <- length(unlist(l))
-cat("Exercise 3 - How many elements are there in the list 'l'? 
-    ", list_length, "\n")
-cat("The structure of the list is shown below:\n")
+l <- list(a = v, b = a, c = s) # creating list called l
+list_length <- length(l)
+# How many elements are there in the list 'l'? 
+list_length
+# The structure of the list is shown below
 str(l)
 
 # Count all elements in the list 'l' recursively
@@ -76,8 +76,9 @@ recursive_list_element_count <- function(x) {
   return(count)
 }
 list_element_count <- recursive_list_element_count(l)
-cat("When counting all the elements in the list 'l' recursively we get a
-    count of : ", list_element_count, "\n")
+# When counting all the elements in the list 'l' recursively we get a
+# count shown below
+list_element_count
 
 
 
@@ -97,33 +98,20 @@ cat("When counting all the elements in the list 'l' recursively we get a
 ###################################################################
 
 # 1. What is the result of l[[3]] (from exercise 3)?
-result_exercise_4_1 <- l[[3]]
-cat("Exercise 4 - Answer to question 1: The result of l[[3]] is a vector.\n")
-print(result_exercise_4_1)
+l[[3]]
+# Exercise 4 - Answer to question 1: The result of l[[3]] is a vector.
 
 # 2. How would you access the 'random-th' letter in the list element 'c'?
-random <- 5  # Replace with the desired index
-random_letter <- l$c[random]
-cat("Answer to question 2: To access the 'random-th' letter in the list 
-    element 'c', use l$c[random].\n")
-print(l$c[random])
+l[[3]][sample(1:length(l[[3]]),1)]
 
 # 3. If you convert list 'l' to a vector, what will be the type of the
 # elements?
-l_as_vector <- unlist(l)
-vector_class <- class(l_as_vector)
-cat("Answer to question 3: If you convert list 'l' to a vector, the elements
-    will be of the same type. The class of the vector is :
-    ", vector_class, "\n")
-
+class(unlist(l)) # if we unlist L then we get character
 # 4. Can this list be converted to an array? What will be the data type
 #of the elements in the resulting array?
 l_as_array <- as.array(l)
-array_class <- class(l_as_array)
-cat("Answer to question 4: This list CAN be converted to an array 
-    and the data type of the elements in the resulting array will
-    depend on the data types of the elements in the list. The class
-    of the array is: ", array_class, "\n")
+class(l_as_array[1]) # the result of resulting array will end up being a list
+
 
 
 
@@ -137,12 +125,8 @@ cat("Answer to question 4: This list CAN be converted to an array
 ################################################
 
 # 1. Remove letters from the list 'l'.
-l_after_removing_letters <- l[-2]
-# Print the list 'l' before and after removing letters
-cat("Exercise 5 - Before removing letters from the list 'l':\n")
-print(l)
-cat("Exercise 5 - After removing letters from the list 'l':\n")
-print(l_after_removing_letters)
+l$c <- NULL
+class(unlist(l))
 
 # 2. Convert the list 'l' to a vector and check its classa.
 l_as_vector <- unlist(l)
@@ -151,10 +135,11 @@ cat("Answer to question 2: The class of the vector after converting list 'l'
     to a vector is: ", vector_class, "\n")
 
 # 3. Compare it with the result from exercise 4, question #3.
-cat("Answer to question 3: Comparison with the result from exercise 4,
-    question #3:\n")
-print(l_as_vector)
-
+# Answer to question 3: Comparison with the result from exercise 4,
+# question #3 the value of this is shown below
+l_as_vector
+# Compared to the value in exercise 4 which is shown below
+class(x[1])
 
 
 #####################################################
@@ -167,15 +152,15 @@ print(l_as_vector)
 ab_difference <- setdiff(l$a, l$b)
 ab_intersect <- intersect(l$a, l$b)
 is_33_in_union <- 33 %in% union(l$a, l$b)
-cat("Exercise 6 - Answer to question 1: Difference between elements in 
-    l[['a']] and l[['b']] is shown below:\n")
-print(ab_difference)
-cat("Answer to question 2: Intersection between elements in l[['a']] 
-    and l[['b']] is shown below:\n")
-print(ab_intersect)
-cat("Answer to question 3: Is the number 33 in the union of elements from 
-    l[['a']] and l[['b']]? ", is_33_in_union, "\n")
-
+# Exercise 6 - Answer to question 1: Difference between elements in 
+# l[['a']] and l[['b']] is shown below
+ab_difference
+# Answer to question 2: Intersection between elements in l[['a']] 
+# and l[['b']] is shown below:\n")
+ab_intersect
+# Answer to question 3: Is the number 33 in the union of elements from 
+# l[['a']] and l[['b']]?
+is_33_in_union
 
 
 #####################################################
@@ -186,9 +171,9 @@ cat("Answer to question 3: Is the number 33 in the union of elements from
 #####################################################
 
 m <- matrix(round(runif(25, min = 1, max = 100), 2), nrow = 5)
-cat("Exercise 7 - the 5x5 Matrix 'm' with random numeric values rounded to two 
-    decimal places is shown below:\n")
-print(m)
+# Exercise 7 - the 5x5 Matrix 'm' with random numeric values rounded to two 
+# decimal places is shown below
+m
 
 
 ####################################################
@@ -216,15 +201,19 @@ data_frame_class <- class(m_as_data_frame)
 # 4. an array
 m_as_array <- as.array(m)
 array_class <- class(m_as_array)
-cat("Exercise 8 - Answer to the question:\n")
-cat("1. If we convert matrix 'm' to a vector, the class of the resulting 
-    data structure is: ", vector_class, "\n")
-cat("2. If we convert matrix 'm' to a list, the class of the resulting data
-    structure is: ", list_class, "\n")
-cat("3. If we convert matrix 'm' to a data frame, the class of the resulting
-    data structure is: ", data_frame_class, "\n")
-cat("4. If we convert matrix 'm' to an array, the class of the resulting 
-    data structure is: ", array_class, "\n")
+# Exercise 8 - Answer to the questions are shown below
+# If we convert matrix 'm' to a vector, the class of the resulting 
+# data structure is
+vector_class
+# If we convert matrix 'm' to a list, the class of the resulting data
+# structure is 
+list_class
+# If we convert matrix 'm' to a data frame, the class of the resulting
+# data structure is
+data_frame_class
+# If we convert matrix 'm' to an array, the class of the resulting 
+# data structure is
+array_class
 
 
 
@@ -232,10 +221,11 @@ cat("4. If we convert matrix 'm' to an array, the class of the resulting
 #    Exercise 9                                      ##
 # Transpose array l$b and then convert it to matrix. ##
 #######################################################
+
 transposed_b <- t(l$b) # transpose
 matrix_b <- as.matrix(transposed_b) # convert to matrix
-cat("Exercise 9 - Matrix 'matrix_b' after transposing array l[['b']]:\n")
-print(matrix_b)
+# Exercise 9 - Matrix 'matrix_b' after transposing array l[['b']]
+matrix_b
 
 
 #####################################################
@@ -250,6 +240,8 @@ l_as_character <- sapply(l, as.character)
 # Get the union of matrix 'm' and elements in list 'l' (as character)
 union_sorted <- sort(union(as.character(m), unlist(l_as_character)))
 # Print the result
-cat("Union of matrix 'm' and elements in list 'l' (as character) 
-    sorted in ascending order is shown below: \n")
-print(union_sorted)
+# Union of matrix 'm' and elements in list 'l' (as character) 
+# sorted in ascending order is shown below
+union_sorted
+# answer from the video shown below which shows the same
+sort(union(as.vector(m),unlist(l)))
