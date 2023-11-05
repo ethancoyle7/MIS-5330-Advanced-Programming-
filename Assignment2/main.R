@@ -350,4 +350,31 @@ people <- people[order(people$age), ]
 # to view the results we print out the people showing the result
 people
 
+###############
+# QUESTION 15 #
+###############
+# Consider the following factor vector:
+fac.x <- factor(LETTERS[1:5])
+fac.x
+# Try to add the letter "F" as the sixth
+# element of fac.x:
+fac.x[6] <- c("F")
+fac.x
+# What happened? Why?
+# MY ANSWER:
+#           the result of this showed a warning message for an invalid factor 
+#           level because factors as designed to have levels that are predefined 
+#           and it cannot be adding new level to the factor that is existing 
+#           directly. We can however,we can use the levels() method to add a new
+#           level without recreating the entire vector from the beginning whih 
+#           is shown below in the R code.
+
+# Write some R code so that you can
+# add "F" as the sixth element WITHOUT
+# recreating the factor vector from 
+# the beginning.
+levels(fac.x) <- c(levels(fac.x), "F")
+# view he output
+levels(fac.x)
+# Print the result is :[1] "A" "B" "C" "D" "E" "F"
 
