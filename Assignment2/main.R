@@ -21,6 +21,7 @@ vec1 < 7
 vec1a <- vec1[vec1 < 7]
 vec1a
 # This prints out : [1] 4 6 5 4
+################################################################################
 
 ###############
 # Question 2. #
@@ -47,7 +48,7 @@ p+q
 #    due to the size mismatch and results in 8+6=14
 #  This gives off the warning message : In p + q : longer object length is not
 #  a multiple of shorter object length
-
+################################################################################
 
 ###############
 # Question 3  #
@@ -72,6 +73,7 @@ p*q
 #      element of q(4) which = 12
 #    The fourth element of p(5) is then mutliplied by q(3) =15
 #    This keeps in line with the output : [1] 18 10 12 15
+################################################################################
 
 ##############
 # Question 4 #
@@ -98,6 +100,7 @@ df4
 
 # MY ANSWER:
 df4[1:2, ]
+################################################################################
 
 ##############
 # Question 5 #
@@ -122,6 +125,7 @@ as.integer(digits)
 #  This takes the characterized vector digits that contain the characters and 
 #  convert them to integers and then prints out the result removing the qutes 
 #  which result in the output [1] 0 1 2 3 4 5 6 7 8 9
+################################################################################
 
 ##############
 # Question 6 #
@@ -148,6 +152,7 @@ k
 # 3+2=5 that is not NA and greater than 0 =5
 # 4+2=6 that is not NA and greater than 0=6
 # So the result will be [1] 3 4 5 6
+################################################################################
 
 ##############
 # Question 7 #
@@ -181,6 +186,7 @@ x
 # MY ANSWER: to output the number of NAS in the vector we can utilize the is.na
 # function to sum these up Shown below which result in 3 NA's
 sum(is.na(x))
+################################################################################
 
 ##############
 # Question 9 #
@@ -200,6 +206,7 @@ new_vector
 #             also shown below
 new_vector <- X[!is.na(X)]
 new_vector
+################################################################################
 
 ###############
 # Question 10 #
@@ -217,6 +224,7 @@ Y
 #             Which results in [1]  1  3 12 11 33  7 11 21. Shown below
 Y[is.na(Y)] <- 11
 Y
+################################################################################
 
 ###############
 # Question 11 #
@@ -257,6 +265,7 @@ N/M
 # and not all of these values divide evenly we will be getting floating point
 # values for these which is automatically assigned when doing this equation
 # since we havent explicitly stated to truncate or round the values.
+################################################################################
 
 ###############
 # Question 12 #
@@ -304,6 +313,7 @@ data$Sex <- ifelse(data$Sex == "M", "F", "M")
 #  Mary    22     60    125   M
 # also outputted below
 data
+################################################################################
 
 ###############
 # QUESTION 13 #
@@ -318,6 +328,7 @@ state.center
 state.center_dataframe <- as.data.frame(state.center)
 #           Then to view the daaframe we output below
 state.center_dataframe
+###############################################################################
 
 ###############
 # QUESTION 14 #
@@ -349,6 +360,7 @@ is.factor(people$name)
 people <- people[order(people$age), ]
 # to view the results we print out the people showing the result
 people
+###############################################################################
 
 ###############
 # QUESTION 15 #
@@ -377,4 +389,141 @@ levels(fac.x) <- c(levels(fac.x), "F")
 # view he output
 levels(fac.x)
 # Print the result is :[1] "A" "B" "C" "D" "E" "F"
+###############################################################################
+
+###############
+# QUESTION 16 #
+###############
+
+#Create a 4 (rows) x 5 (columns) matrix 
+#    named mat16 consisting of the sequence 
+#    of numbers from 21 to 40. Make sure that
+#    the numbers populate the matrix by rows, 
+#    and not by columns.
+
+# MY R CODE
+# Create a 4x5 matrix by rows
+mat16 <- matrix(21:40, nrow = 4, byrow = TRUE)
+
+# Change the row names to row1, row2, row3 and
+# row4. Then change the column names to col1,
+# col2, col3, col4 and col5.
+
+# MY R CODE
+# Changing the row names to row1,row2,row3,row4
+rownames(mat16) <- c("row1", "row2", "row3", "row4")
+
+# Changing the collum names to the specification col1,col2,col3,col4,col4,col5
+colnames(mat16) <- c("col1", "col2", "col3", "col4", "col5")
+# The below is printing out the result of the matrix
+mat16
+###############################################################################
+
+###############
+# Question 17 #
+###############
+
+# Change mat16 to a data frame named "df17"
+# MY R CODE IS BELOW
+# Change mat16 to a data frame named df17
+df17 <- as.data.frame(mat16)
+# To view it shown below
+df17
+#############################################
+# Part 2. Create two more vectors:
+col6 <- c(41:44)
+col7 <- c(45:48)
+
+# Join vectors col6 and col7 to data
+# frame df17 that they comprise 
+# columns 6 and 7 of df17
+
+# MY R CODE IS SHOWN BELOW
+
+# Add col6 and col7 as the 6th and 7th column of df17
+df17$col6 <- col6
+df17$col7 <- col7
+# View the result after doing these to the  data frame
+df17
+
+################################################################################
+
+###############
+# QUESTION 18 #
+###############
+
+# Take df17 and convert it to a list with the name "list18".
+
+# MY R CODE
+# Convert df17 to a list named list18
+list18 <- as.list(df17)
+
+# Then add list18 as the eighth component of list18
+
+# MY R CODE
+# Add list18 as the eighth component of list18
+list18[[8]] <- list18
+# Then for posterity, we an View the resulting list below
+list18
+################################################################################
+
+###############
+# QUESTION 19 #
+###############
+
+# Consider the following matrix:
+mat19 <- matrix(1:18, nrow = 3)
+mat19
+# Write a short R command that
+# outputs the following (without
+# the comment marks:
+
+#      [,1] [,2] [,3]
+# [1,]    1    2    3
+# [2,]    4    5    6
+# [3,]    7    8    9
+# [4,]   10   11   12
+# [5,]   13   14   15
+# [6,]   16   17   18
+
+# MY ANSWER IN R CODE IS SHOWN BELOW
+
+# we need to transpose this where it flips that using the t(mat19) transposes 
+# that and makes it 3 collums 6 rows versus the old which was 6 x3 and then 
+# that makes it match the desired output shown above 
+t(mat19)
+
+################################################################################
+
+###############
+# QUESTION 20 #
+###############
+
+# Create the following data frame:
+name <- c("Harry", "Ron", "John", "Jerry", "Betty")
+weight <- c(176, 175, 167, 230, 180)
+gpa <- c(3.4, 2.8, 4.0, 2.2, 3.4)
+df20 <- data.frame(name, weight, gpa)
+df20
+
+# Write a brief line of R code that
+# Reassigns John's weight to be 195
+
+# MY R CODE
+# get the collum $ name and look for john and weight assign and overwrite the 
+# value to 195, the original was 167 and then print out for viewing
+df20[df20$name == "John", "weight"] <- 195
+df20
+
+# Part 2. Filter out the students in df20 who
+# have a GPA higher than 3.0 and put
+# them in a new data frame named "df20a"
+
+# My R Code
+# all those that have a gpa above the 3.0 in the gpa $ collum are filtered out
+#  and saved to a data frame called df20a and then print to verify the changes
+#  are correct
+df20a <- df20[df20$gpa > 3.0, ]
+df20a
+################################################################################
 
