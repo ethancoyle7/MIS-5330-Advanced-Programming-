@@ -1,3 +1,20 @@
+#######################################
+####   Student   : Ethan Coyle     ####
+####   Instructor: Dr. Hubona      ####
+####   Course    : MIS 5330 780    ####
+####               FL23 - Advanced ####
+####               Programming     ####
+####   Assignment: Subsetting R    ####
+####       Data Structure Objects  ####
+####   Date      : 11/11/23        ####
+####                               ####
+#######################################
+
+# Note: Below are the 20 exercises specified for this assignment
+# my comments are using the #  and the questions are separated by
+# and entire line of # to make it easier to sift through. Also  
+# any R code that I have implemented falls under the notation MY ANSWER 
+# or MY R CODE IS BELOW etc.
 
 
 ##############
