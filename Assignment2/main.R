@@ -1,20 +1,16 @@
-#######################################
-####   Student   : Ethan Coyle     ####
-####   Instructor: Dr. Hubona      ####
-####   Course    : MIS 5330 780    ####
-####               FL23 - Advanced ####
-####               Programming     ####
-####   Assignment: Subsetting R    ####
-####       Data Structure Objects  ####
-####   Date      : 11/11/23        ####
-####                               ####
-#######################################
-
-# Note: Below are the 20 exercises specified for this assignment
-# my comments are using the #  and the questions are separated by
-# and entire line of # to make it easier to sift through. Also  
-# any R code that I have implemented falls under the notation MY ANSWER 
-# or MY R CODE IS BELOW etc.
+################################################################################
+####                  Student   : Ethan Coyle                               ####
+####                  Instructor: Dr. Hubona                                ####
+####                  Course    : MIS 5330 780 FL23 - Advanced Programming  ####
+####                  Assignment: Subsetting R Data Structure Objects       ####
+####                  Date      : 11/11/23                                  ####
+####                                                                        ####
+#### Note: Below are the 20 exercises specified for this assignment         ####
+#### my comments are using the #  and the questions are separated by        ####
+#### and entire line of # to make it easier to sift through. Also           ####
+#### any R code that I have implemented falls under the notation MY ANSWER  ####
+#### or MY R CODE IS BELOW etc.                                             ####
+################################################################################
 
 
 ##############
@@ -199,7 +195,7 @@ x <- c(34, 56, 55, 87, NA, 4, 77, NA, 21, NA, 39)
 x
 # Write a single line of R code
 # that will output the number of NA's in the vector.
-   
+
 # MY ANSWER: to output the number of NAS in the vector we can utilize the is.na
 # function to sum these up Shown below which result in 3 NA's
 sum(is.na(x))
@@ -288,17 +284,17 @@ N/M
 # Question 12 #
 ###############
 # Create the following data frame. NOTE: 
-  #    the people names are NOT the first 
-  #    column, they are the rownames. You
-  #    might want to call up help for data.frame()
-  
-  #          Age  Height  Weight   Sex
-  # Alex      17      65     170     M
-  # Lilly     25      60     135     F
-  # Mark      29      72     185     M
-  # Oliver    18      66     175     M
-  # Martha    31      64     145     F
-  # Ken       42      73     195     M
+#    the people names are NOT the first 
+#    column, they are the rownames. You
+#    might want to call up help for data.frame()
+
+#          Age  Height  Weight   Sex
+# Alex      17      65     170     M
+# Lilly     25      60     135     F
+# Mark      29      72     185     M
+# Oliver    18      66     175     M
+# Martha    31      64     145     F
+# Ken       42      73     195     M
 # Mary      22      60     125     F
 # MY ANSWER:
 data <- data.frame(
