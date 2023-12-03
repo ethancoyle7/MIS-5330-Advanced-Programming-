@@ -31,7 +31,7 @@ simulated_purchase_of_100_quarters <- function() {
 # call the function and save the result the print it out
 number_of_unique_quarters <- simulated_purchase_of_100_quarters()
 # Print the number of unique quarters
-number_of_unique_quarters
+number_of_unique_quarters # averaging about 42ish this changes multiple times
 
 
 ################################################################################
@@ -85,7 +85,9 @@ expected_number_of_unique_quarters # display out the result of the expected
 compute_total_cost <- function() {
   states <- 1:50  # Represents the 50 states
   unique_quarters <- unique(sample(states, 100, replace = TRUE))
-  remaining_quarters <- setdiff(states, unique_quarters)
+  remaining_quarters <- setdiff(states, unique_quarters) # use setdiff for the 
+                                                         # diff in states to unique
+                                                         # to get the remainder
   total_cost <- length(remaining_quarters) * 2 # multipluy remainder by 2 for 
                                               # the $2 per quarter
   return(total_cost) # return back the total cost to get all unique
