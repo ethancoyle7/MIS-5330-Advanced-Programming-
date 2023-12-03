@@ -1,48 +1,102 @@
-# Function to simulate the purchase of 100 quarters and record the number of unique quarters
-simulate_quarter_purchase <- function() {
+################################################################################
+####                  Student   : Ethan Coyle                               ####
+####                  Instructor: Dr. Hubona                                ####
+####                  Course    : MIS 5330 780 FL23 - Advanced Programming  ####
+####                  Assignment: Module 5: Assignment 5                    ####
+####                                        COLLECTING QUARTTERS            ####
+####                  Date      : 12/09/23                                  ####
+####                                                                        ####
+################################################################################
+# Guidelines                                                                   #
+#                                                                              #
+# In 1999, the United States launched the 50 State Quarters program where each #
+# of the 50 states was honored with a special quarter. Suppose you purchase    #
+# 100 “state” quarters where each quarter is equally likely to feature one of  #
+# the 50 states.                                                               #
+################################################################################
+
+
+################################################################################
+# Question 1                                                                   #
+#                                                                              #
+# Write a function using the sample() function to simulate the purchase of 100 #
+# quarters and record the number of unique quarters that are purchased.        #
+################################################################################
+
+# Function to simulate the purchase of 100 quarters and record unique quarters
+simulated_purchase_of_100_quarters <- function() {
   states <- 1:50  # Represents the 50 states
-  purchased_quarters <- sample(states, 100, replace = TRUE)  # Simulate the purchase of 100 quarters
-  unique_quarters <- length(unique(purchased_quarters))  # Count the number of unique quarters
-  return(unique_quarters)
+  length(unique(sample(states, 100, replace = TRUE)))
 }
-
-# Step 1 - Simulate the purchase of 100 quarters and record the number of unique quarters
-unique_quarters_1 <- simulate_quarter_purchase()
+# call the function and save the result the print it out
+number_of_unique_quarters <- simulated_purchase_of_100_quarters()
 # Print the number of unique quarters
-# unique_quarters_1
+number_of_unique_quarters
 
-# Step 2 - Using replicate() to repeat the process for 1000 purchases
-num_simulations <- 1000
-unique_quarters_simulations <- replicate(num_simulations, simulate_quarter_purchase())
 
-# Step 3 - Estimate the probability of obtaining at least 45 unique quarters
-probability_at_least_45 <- mean(unique_quarters_simulations >= 45)
-# Print the probability
-# probability_at_least_45
+################################################################################
+# Question 2                                                                   #
+#                                                                              #
+# Using the replicate() function, repeat this process for 1000 purchases.      #
+# Construct a table of the number of unique quarters you obtain in these 1000  #
+# simulations. Use this table to estimate the probability that you obtain at   #
+# least 45 unique quarters                                                     #
+################################################################################
 
-# Step 4 - Find the expected number of unique quarters
-expected_unique_quarters <- mean(unique_quarters_simulations)
-# Print the expected number of unique quarters
-# expected_unique_quarters
+# Simulate the purchase 1000 times and record the number of unique quarters
+simulation_results_1000_purchases <- 
+  replicate(1000, simulated_purchase_of_100_quarters())
+simulation_results_1000_purchases # display the simulation results all 1000 
+# Create a table of the results which returns back count of all unique nums like
+# 35 questers ,38 quarters ,40 etc 
+results_table <- table(simulation_results_1000_purchases)
+results_table # displays how many unique times count has occurred 
+# Estimate the probability of obtaining at least 45 unique quarters
+probability_at_least_45 <- sum(results_table[names(results_table) >= 45]) /
+  sum(results_table)
+probability_at_least_45 # print out the probability of getting count >= 45 
+# the probability is respresented by 0 to 1 and the close it is to 1 the higher
+# the probability is this returns roughly a result above 0.3 
 
-# Function to compute the total (random) cost of completing the quarter set
-compute_cost_of_completion <- function() {
-  cost_per_quarter <- 2  # Cost per quarter
-  quarters_needed <- 50  # Number of unique quarters needed to complete the set
-  purchased_quarters <- numeric(50)  # Initialize a vector to keep track of purchased quarters
-  cost <- 0  # Initialize the total cost
-  while (length(unique(purchased_quarters)) < quarters_needed) {
-    new_quarter <- sample(states, 1)  # Simulate the purchase of a single quarter
-    purchased_quarters <- c(purchased_quarters, new_quarter)
-    cost <- cost + cost_per_quarter
-  }
-  return(cost)
+
+################################################################################
+# Question 3                                                                   #   
+# Use the output from 2) to find the expected number of unique quarters.       #
+################################################################################
+
+# Find the expected number of unique quarters
+expected_number_of_unique_quarters <- sum(as.numeric(names(results_table)) *
+                                  results_table) / sum(results_table)
+expected_number_of_unique_quarters # display out the result of the expected 
+# number quarters this roughty returns back 43.357
+
+
+################################################################################
+# Question 4                                                                   #
+#                                                                              #
+# Suppose you are able to complete your quarter set by purchasing state        #
+# quarters from a coin shop for $2 for each quarter. Revise your function to   #
+# compute the total (random) cost of completing the quarter set. Using the     #
+# replicate() function,repeat the quarter-purchasing process 1000 times and    #
+# compute the expected cost of completing your set.                            #
+################################################################################
+
+# Revised function to compute the total cost of completing the quarter set
+compute_total_cost <- function() {
+  states <- 1:50  # Represents the 50 states
+  unique_quarters <- unique(sample(states, 100, replace = TRUE))
+  remaining_quarters <- setdiff(states, unique_quarters)
+  total_cost <- length(remaining_quarters) * 2 # multipluy remainder by 2 for 
+                                              # the $2 per quarter
+  return(total_cost) # return back the total cost to get all unique
 }
 
-# Step 4 - Repeat the quarter-purchasing process 1000 times and compute the expected cost
-expected_cost_simulations <- replicate(num_simulations, compute_cost_of_completion())
+# Simulate the quarter-purchasing process 1000 times and compute the expected cost
+expected_costs <- replicate(1000, compute_total_cost()) # using replicate func.
+expected_costs # print out the expected costs for the 1000 simulations
 
-# Calculate the expected cost of completing the set
-expected_cost <- mean(expected_cost_simulations)
-# Print the expected cost
-# expected_cost
+average_expected_cost <- mean(expected_costs)
+average_expected_cost # print out the avg costs abou 12-14 after caculating the
+# avergage cost out of the 1000 simulations
+
+################################################################################
